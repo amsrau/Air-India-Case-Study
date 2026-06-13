@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Tata–Air India Acquisition</title>
+  <script src="https://unpkg.com/react@18/umd/react.production.min.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js" crossorigin></script>
+  <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+    }
+  </style>
+</head>
+<body>
+  <div id="root"></div>
+  <script type="text/babel">
+    const { useState } = React;
+
+    const chapters = [
+      {
+        id: "homecoming",
+        num: "I",
+        title: "The Homecoming",
+        subtitle: "1932 → 1953 → 2022",
+        narrative: [
+          `In 1932, a young industrialist named J.R.D. Tata flew a single-engine de Havilland Puss Moth from Karachi to Mumbai, carrying mail. That flight became Tata Airlines — India's first commercial carrier. Twenty-one years later, in 1953, the newly independent Indian government nationalized the airline and renamed it Air India. The Tatas lost their creation.`,
+          `Sixty-nine years passed. By 2021, Air India had become a cautionary tale — a once-proud flag carrier drowning in ₹58,283 crore of debt, losing money every year for over a decade, with aging aircraft, crumbling service, and a workforce shaped by decades of government ownership. The Indian government had tried to sell it in 2018. Not a single bidder showed up.`,
+          `On October 8, 2021, Tata Sons won the bid to buy back the airline its founder had created. The price: ₹18,000 crore in enterprise value, including ₹15,300 crore of retained debt and ₹2,700 crore in cash. The only competing bid — from SpiceJet at ₹15,000 crore — was ₹3,000 crore lower. For Tata, this was not just a transaction. It was a return to unfinished business.`
+        ],
+        framework: {
+          concept: "Direction of Growth (Module 5.1)",
+          application: `On the surface, this is horizontal integration — an airline group buying another airline. But the deeper logic is geographic expansion: Tata was buying India's only carrier with a meaningful international network. The bilateral route rights, grandfather slots at Heathrow and JFK, and 90 years of diplomatic relationships cannot be replicated through organic growth. This is the distinction between what the deal looks like and what it actually is.`,
+          keyTerms: ["Horizontal Integration", "Geographic Expansion", "Regulatory Assets"]
+        },
+        stats: [
+          { label: "Year Founded", value: "1932", sublabel: "as Tata Airlines" },
+          { label: "Years Under Government", value: "69", sublabel: "1953–2022" },
+          { label: "Deal Enterprise Value", value: "₹18,000 Cr", sublabel: "~$2.4 billion" },
+        ]
+      },
+      {
+        id: "moat",
+        num: "II",
+        title: "What Tata Was Buying",
+        subtitle: "The regulatory moat",
+        narrative: [
+          `The financial statements said Air India was worthless — or worse. Negative net worth, chronic losses, a bloated workforce. So why would anyone pay ₹18,000 crore for it? The answer lies in assets that don't appear on a balance sheet.`,
+          `Air India held India's largest repository of bilateral route rights — government-to-government agreements that permit airlines to fly specific international routes. These rights are allocated once and rarely redistributed. The airline also held grandfather landing slots at the world's most congested airports: Heathrow, JFK, Newark, Narita. A slot at Heathrow alone can be worth $75 million on the secondary market. Air India held multiple. Together, the acquisition delivered 4,400 domestic and 1,800 international airport slots.`,
+          `Then there was the Star Alliance membership, 128 destinations, a fleet of 43 widebody aircraft (B777s and B787s) capable of true long-haul service, and a brand — the Maharaja — recognized in every continent. You can build a new airline from scratch. You cannot build these regulatory positions. Not at any price, not at any speed.`
+        ],
+        framework: {
+          concept: "Benefits of M&A (Module 5.3)",
+          application: `Three of the four M&A benefits from the course apply directly. First, speed: Tata gained immediate access to 90 years of regulatory positioning. Organic route applications take years per country. Second, full control: unlike alliances or codeshares, ownership gives Tata yield management, branding, and scheduling control over these routes. Third, access to the target's competitive advantage: the bilateral rights and slots are Air India's moat — they exist because Air India was the national carrier, and they transfer with ownership. The fourth benefit — "doesn't increase competition" — also applies: Tata consolidated three of its own airlines rather than adding a new competitor.`,
+          keyTerms: ["Quick Results", "Full Control", "Access to Competitive Advantage", "BATNA"]
+        },
+        stats: [
+          { label: "Domestic Slots", value: "4,400", sublabel: "acquired" },
+          { label: "International Slots", value: "1,800", sublabel: "including Heathrow, JFK" },
+          { label: "Widebody Aircraft", value: "43", sublabel: "B777 + B787 fleet" },
+        ]
+      },
+      {
+        id: "price",
+        num: "III",
+        title: "The Price of Entry",
+        subtitle: "Valuation, premium, and the hidden cost",
+        narrative: [
+          `Was ₹18,000 crore a fair price? The government set a reserve price of ₹12,906 crore based on independent valuations. Tata bid 39% above that floor. SpiceJet, the only other bidder, offered ₹15,000 crore. At roughly 0.8x revenue and 4.8x EBITDAR, the implied multiples sit comfortably within the range of comparable distressed-airline transactions globally — Alaska-Hawaiian at 0.7x, Lufthansa-ITA at 0.3x, JetBlue-Spirit at 0.8x.`,
+          `But the headline price was only the entry ticket. The true cost of transforming Air India into a competitive airline includes the Vistara merger (valued at ₹9,000 crore), integration costs of ₹2,000–3,000 crore for rebranding, IT harmonization, and crew scheduling, a $400 million cabin retrofit program for legacy aircraft, and cumulative losses absorbed during transformation.`,
+          `By FY2026, the estimated all-in investment — excluding the massive fleet order for 570 new aircraft — reaches ₹85,000–95,000 crore. That's roughly 5x the headline acquisition price. The fleet orders, at an estimated $30–35 billion after discounts, dwarf everything else but are spread over a decade. The acquisition was the door. The renovation is the real commitment.`
+        ],
+        framework: {
+          concept: "Value Created Through M&A (Module 5.5)",
+          application: `The course formula — Value Created = Added Value minus Cost of Acquisition — structures this perfectly. Cost of acquisition isn't just the transaction price. Module 5.5 includes transaction costs, acquisition premium, and the negative impact of acquisition. For Air India, the "negative impact" component has proven far larger than expected: cumulative losses, integration disruption, competitive ground lost to IndiGo during transformation. The all-in cost is ~5x the headline price. The question is whether the added value — the gap between the merged entity's value and the sum of standalone values — will eventually exceed this growing cost base.`,
+          keyTerms: ["Value Creation Formula", "Acquisition Premium", "Negative Impact of Acquisition"]
+        },
+        stats: [
+          { label: "Premium over Reserve", value: "39%", sublabel: "₹18,000 vs ₹12,906 Cr" },
+          { label: "EV/Revenue", value: "0.8x", sublabel: "in line with global comps" },
+          { label: "All-in Cost (est.)", value: "~₹90,000 Cr", sublabel: "~5x headline price" },
+        ]
+      },
+      {
+        id: "consolidation",
+        num: "IV",
+        title: "Three Airlines Become One",
+        subtitle: "The consolidation play",
+        narrative: [
+          `Tata didn't just buy Air India — it then merged its entire aviation portfolio into a unified structure. Pre-deal, Tata operated three separate airlines: Air India (the acquisition), Vistara (a joint venture with Singapore Airlines), and AirAsia India (a joint venture with AirAsia Group). All three were loss-making. The plan was to collapse them into two brands: Air India for full-service and Air India Express for low-cost.`,
+          `The Vistara merger, completed in November 2024, was executed through a scheme of arrangement valued at ₹9,000 crore. Singapore Airlines injected ₹2,058.5 crore ($250M) for a 25.1% equity stake in the enlarged Air India Group. Tata retained 74.9%. All 70 Vistara aircraft transferred in, along with 5,500+ employees. Crucially, Vistara itself had never been profitable — it lost $249 million in FY2023 and $364 million the year before. The "organic growth alternative" was itself a cash-burning operation.`,
+          `The pre-merger arithmetic tells the story. Air India had 9.8% domestic share, Vistara had 10.4%. Combined: 22.9%. Fleet went from 127 to 208. Combined pre-merger losses of ~₹12,781 crore were rationalized to ~₹4,444 crore in the first merged year — a 65% reduction. The merger wasn't about growth. It was about eliminating redundancy: overlapping domestic routes, duplicate back offices, three separate IT systems, three separate crew pools.`
+        ],
+        framework: {
+          concept: "Downsides of M&A — Post-Merger Integration (Module 5.4)",
+          application: `Module 5.4 identifies four PMI problem areas. All four are visible here. Restructuring operations: three route networks collapsed into one, with inevitable service disruption during transition. Harmonizing management systems: crew scheduling, reservation systems, loyalty programs, and maintenance tracking all needed unification — at a cost of ₹2,000–3,000 crore. Cultural integration: 14,000 government-era Air India employees, 5,500 premium-culture Vistara staff, and AirAsia's LCC-culture team — fundamentally different work norms and expectations. Losing ground to competition: while Tata focused inward on integration, IndiGo's domestic share grew from ~55% to 65%.`,
+          keyTerms: ["PMI Problems", "Restructuring Operations", "Harmonizing Systems", "Cultural Integration"]
+        },
+        stats: [
+          { label: "Airlines Merged", value: "3 → 1", sublabel: "+ Air India Express (LCC)" },
+          { label: "Vistara Fleet Added", value: "70", sublabel: "aircraft transferred" },
+          { label: "Loss Reduction (Yr 1)", value: "65%", sublabel: "₹12,781 → ₹4,444 Cr" },
+        ]
+      },
+      {
+        id: "scorecard",
+        num: "V",
+        title: "The Scorecard",
+        subtitle: "Measuring the transformation",
+        narrative: [
+          `By FY2025, the first full year reflecting all mergers, Air India's standalone revenue reached ₹61,080 crore — up 57% from ₹38,812 crore in FY2024. The standalone loss narrowed to ₹3,976 crore, down from ₹4,444 crore. EBITDAR — the airline industry's standard operating profitability measure — grew 1.59 times over the prior year. Customer perception flipped: the Net Promoter Score swung from -19 to +30 in under two years, and the airline's app hit 4.8 stars.`,
+          `The competitive benchmarking against IndiGo reveals a nuanced picture. Both airlines now operate at comparable scale — IndiGo at ₹80,803 crore revenue, Air India at ₹61,080 crore standalone. IndiGo earns a 9.0% net profit margin; Air India runs at -6.5%. That 15.5 percentage point gap is the cost of transformation. But beneath the headline, Air India's revenue per employee (₹3.05 crore) exceeds IndiGo's (₹1.97 crore), reflecting the value of premium international routes. Revenue per aircraft — ₹204 crore versus ₹186 crore — tells the same story. The widebody international network generates higher yields per unit of capacity.`,
+          `The codeshare network is expanding aggressively: 61 new points with Singapore Airlines, ~60 routes with the Lufthansa Group, reinstated partnerships with Air Canada and new ones with Air New Zealand. Each partnership multiplies the revenue potential of the route network that Tata acquired. A Joint Business Agreement with Singapore Airlines — the deepest form of airline commercial cooperation short of merger — is under exploration.`
+        ],
+        framework: {
+          concept: "Assessing Performance of M&A (Module 5.2)",
+          application: `The challenge of assessing this deal is choosing the right metric and the right time horizon. Short-term financial performance (net profit) says the deal is failing: losses persist. Operating performance (EBITDAR growth, loss reduction) says it's improving. Strategic positioning (market share, network, NPS) says the foundation is strong. Revenue quality (yield per employee, yield per aircraft) says the acquired assets are generating premium returns. Module 5.2 warns against evaluating M&A on a single dimension. The synthesis: the deal's operational metrics are trending positively, the strategic positioning is strong, but financial breakeven hasn't arrived yet.`,
+          keyTerms: ["Performance Assessment", "Multiple Metrics", "Time Horizon"]
+        },
+        stats: [
+          { label: "Revenue (SA, FY25)", value: "₹61,080 Cr", sublabel: "+57% YoY" },
+          { label: "NPS Swing", value: "-19 → +30", sublabel: "in ~18 months" },
+          { label: "EBITDAR Growth", value: "1.59x", sublabel: "over FY24" },
+        ]
+      },
+      {
+        id: "headwinds",
+        num: "VI",
+        title: "The Headwinds",
+        subtitle: "What went wrong — and what's still uncertain",
+        narrative: [
+          `On June 12, 2025, Air India Flight AI171, a Boeing 787-8 operating from Ahmedabad to London Gatwick, crashed immediately after takeoff. 260 people lost their lives. It was one of the deadliest aviation disasters in India's history. Beyond the immeasurable human cost, the crash placed intense scrutiny on Air India's safety culture, maintenance practices, and the pace of its transformation. The investigation is ongoing.`,
+          `In April 2026, CEO Campbell Wilson — the executive who had led the entire post-acquisition transformation — announced his resignation. While Wilson stated he had informed the chairman of his intention in 2024, the timing added uncertainty to an already turbulent period. The leadership transition remains unresolved.`,
+          `The FY2025/26 financials — disclosed through Singapore Airlines' equity-method reporting — revealed a sharp deterioration. Losses tripled to approximately ₹31,400 crore on revenue of ~₹88,000 crore. Net equity turned negative: total liabilities exceeded total assets by ~₹8,500 crore. Pakistan's airspace closure forced expensive re-routing of European flights. Middle East operational restrictions cut into profitable Gulf routes. Elevated fuel prices compressed margins. Bloomberg reported that Air India has asked both Tata Group and Singapore Airlines for additional funding. SIA confirmed that its chairman and CEO met to discuss Air India's funding roadmap.`
+        ],
+        framework: {
+          concept: "Downsides of M&A — Negative Impact (Module 5.4 / 5.5)",
+          application: `The "negative impact of acquisition" in the Module 5.5 value creation formula is typically thought of as integration costs and management distraction. Air India shows a broader category: external shocks that hit hardest during the vulnerable transformation period. A stable, well-capitalized airline can absorb a crash investigation, an airspace closure, and a CEO departure. An airline mid-transformation, with negative equity and active fleet restructuring, faces compounding stress. The course framework captures this under "cost of acquisition" — but the magnitude and unpredictability of these costs exceeds what any pre-deal model could have anticipated.`,
+          keyTerms: ["Negative Impact", "Execution Risk", "External Shocks During Integration"]
+        },
+        stats: [
+          { label: "FY26 Net Loss", value: "~₹31,400 Cr", sublabel: "losses tripled from FY25" },
+          { label: "Net Equity", value: "Negative", sublabel: "liabilities > assets by ~₹8,500 Cr" },
+          { label: "Revenue (FY26)", value: "~₹88,000 Cr", sublabel: "still growing" },
+        ]
+      },
+      {
+        id: "verdict",
+        num: "VII",
+        title: "The Verdict",
+        subtitle: "Was this a good deal?",
+        narrative: [
+          `Apply the Module 5.5 formula strictly and the answer, today, is no. The cost of acquisition — headline price plus hidden premium plus cumulative losses plus integration costs — has reached an estimated ₹85,000–95,000 crore. The added value — the difference between the merged entity's value and the sum of standalone values — remains negative. Net equity is underwater. Profitability hasn't arrived. By the numbers, value has not yet been created.`,
+          `But "not yet" is doing important work in that sentence. Tata did not buy Air India for its near-term cash flows. It bought regulatory assets whose value compounds over decades in a market growing at 12% annually — a market projected to become the world's third largest by 2030. The bilateral rights, grandfather slots, and international network are appreciating assets in a structurally expanding market. They cannot be replicated by any competitor at any price. The question isn't whether these assets have value. It's whether the accumulating cost of transformation will erode the eventual payoff.`,
+          `The honest synthesis: Tata's strategic logic was sound — the BATNA analysis confirms no alternative path existed to build this position. The valuation was fair by global comparables. The PMI challenges are severe but consistent with the scale of integration attempted. The external headwinds (crash, airspace closures) were unforeseeable. What remains uncertain is whether Tata's financial capacity and strategic patience can outlast the transformation timeline. This is a deal where the investment thesis will be judged not in years but in decades — and the jury is still very much out.`
+        ],
+        framework: {
+          concept: "Value Creation — The Full Framework",
+          application: `This case illustrates something the course modules address implicitly but rarely state directly: the value creation formula is time-dependent. At any given snapshot, cost of acquisition is concrete and measurable while added value may still be potential. For turnaround acquisitions of strategic assets, the formula may remain negative for years before inflecting. The analytical question is not "has value been created?" but "is the trajectory toward value creation credible, and does the acquirer have the resources to reach it?" Tata's answer depends on the depth of the Tata Group's balance sheet, SIA's continued commitment, and India's aviation growth trajectory.`,
+          keyTerms: ["Value Creation Formula", "Time Horizon", "Strategic Patience", "Turnaround Acquisition"]
+        },
+        stats: [
+          { label: "All-in Cost to Date", value: "~₹90,000 Cr", sublabel: "5x headline price" },
+          { label: "India Aviation CAGR", value: "12%", sublabel: "3rd largest market by 2030" },
+          { label: "Value Created?", value: "Not Yet", sublabel: "directional, not realized" },
+        ]
+      }
+    ];
+
+    const palette = {
+      bg: "#faf7f2",
+      navy: "#1a2332",
+      gold: "#b8913a",
+      goldLight: "#f5eddb",
+      frameworkBg: "#f0ece4",
+      frameworkBorder: "#d4c9b5",
+      textPrimary: "#2c2c2c",
+      textSecondary: "#5a5a5a",
+      textMuted: "#8a8a8a",
+      loss: "#a03030",
+      divider: "#ddd5c8",
+      white: "#ffffff",
+      activeChapter: "#1a2332",
+    };
+
+    function TataAirIndiaCase() {
+      const [activeChapter, setActiveChapter] = useState(0);
+      const ch = chapters[activeChapter];
+
+      return (
+        <div style={{
+          fontFamily: "Georgia, 'Times New Roman', serif",
+          background: palette.bg,
+          color: palette.textPrimary,
+          minHeight: "100vh",
+          lineHeight: 1.7,
+        }}>
+          {/* Header */}
+          <header style={{
+            background: palette.navy,
+            color: palette.white,
+            padding: "48px 32px 40px",
+            textAlign: "center",
+          }}>
+            <div style={{
+              fontFamily: "system-ui, sans-serif",
+              fontSize: 11,
+              letterSpacing: 4,
+              textTransform: "uppercase",
+              color: palette.gold,
+              marginBottom: 16,
+            }}>
+              Corporate Strategy · M&A Team Project
+            </div>
+            <h1 style={{
+              fontSize: 32,
+              fontWeight: 400,
+              margin: "0 0 8px",
+              letterSpacing: 0.5,
+            }}>
+              The Tata–Air India Acquisition
+            </h1>
+            <div style={{
+              fontSize: 16,
+              color: "#a0a8b4",
+              fontStyle: "italic",
+              fontWeight: 400,
+            }}>
+              A ₹18,000 crore bet on irreplaceable assets — and the cost of transformation
+            </div>
+          </header>
+
+          {/* Chapter Navigation */}
+          <nav style={{
+            display: "flex",
+            flexWrap: "wrap",
+            gap: 0,
+            borderBottom: `1px solid ${palette.divider}`,
+            background: palette.white,
+            position: "sticky",
+            top: 0,
+            zIndex: 10,
+          }}>
+            {chapters.map((c, i) => (
+              <button
+                key={c.id}
+                onClick={() => setActiveChapter(i)}
+                style={{
+                  flex: "1 1 auto",
+                  minWidth: 90,
+                  padding: "14px 8px 12px",
+                  border: "none",
+                  borderBottom: activeChapter === i ? `3px solid ${palette.gold}` : "3px solid transparent",
+                  background: activeChapter === i ? palette.goldLight : "transparent",
+                  cursor: "pointer",
+                  fontFamily: "system-ui, sans-serif",
+                  fontSize: 11,
+                  fontWeight: activeChapter === i ? 700 : 400,
+                  color: activeChapter === i ? palette.navy : palette.textMuted,
+                  letterSpacing: 0.5,
+                  transition: "all 0.2s ease",
+                  textAlign: "center",
+                }}
+              >
+                <span style={{ display: "block", fontSize: 13, marginBottom: 2 }}>{c.num}</span>
+                {c.title}
+              </button>
+            ))}
+          </nav>
+
+          {/* Chapter Header */}
+          <div style={{
+            padding: "40px 32px 0",
+            maxWidth: 1100,
+            margin: "0 auto",
+          }}>
+            <div style={{
+              fontFamily: "system-ui, sans-serif",
+              fontSize: 12,
+              letterSpacing: 3,
+              textTransform: "uppercase",
+              color: palette.gold,
+              marginBottom: 8,
+            }}>
+              Chapter {ch.num}
+            </div>
+            <h2 style={{
+              fontSize: 28,
+              fontWeight: 400,
+              margin: "0 0 4px",
+              color: palette.navy,
+            }}>
+              {ch.title}
+            </h2>
+            <div style={{
+              fontSize: 16,
+              color: palette.textSecondary,
+              fontStyle: "italic",
+              marginBottom: 24,
+            }}>
+              {ch.subtitle}
+            </div>
+
+            {/* Stats Bar */}
+            <div style={{
+              display: "flex",
+              gap: 0,
+              marginBottom: 32,
+              borderRadius: 6,
+              overflow: "hidden",
+              border: `1px solid ${palette.divider}`,
+            }}>
+              {ch.stats.map((s, i) => (
+                <div key={i} style={{
+                  flex: 1,
+                  padding: "16px 20px",
+                  background: palette.white,
+                  borderRight: i < ch.stats.length - 1 ? `1px solid ${palette.divider}` : "none",
+                  textAlign: "center",
+                }}>
+                  <div style={{
+                    fontFamily: "system-ui, sans-serif",
+                    fontSize: 10,
+                    letterSpacing: 1.5,
+                    textTransform: "uppercase",
+                    color: palette.textMuted,
+                    marginBottom: 6,
+                  }}>
+                    {s.label}
+                  </div>
+                  <div style={{
+                    fontSize: 22,
+                    fontWeight: 700,
+                    color: s.value.includes("Negative") || s.value.includes("Not Yet") ? palette.loss : palette.navy,
+                    fontFamily: "system-ui, sans-serif",
+                    marginBottom: 2,
+                  }}>
+                    {s.value}
+                  </div>
+                  <div style={{
+                    fontSize: 11,
+                    color: palette.textMuted,
+                    fontFamily: "system-ui, sans-serif",
+                  }}>
+                    {s.sublabel}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Two-Column Content */}
+          <div style={{
+            display: "flex",
+            gap: 32,
+            maxWidth: 1100,
+            margin: "0 auto",
+            padding: "0 32px 48px",
+            alignItems: "flex-start",
+          }}>
+            {/* Left: Narrative */}
+            <div style={{ flex: "1 1 62%", minWidth: 0 }}>
+              {ch.narrative.map((p, i) => (
+                <p key={i} style={{
+                  fontSize: 16,
+                  marginBottom: 20,
+                  color: palette.textPrimary,
+                  lineHeight: 1.8,
+                }}>
+                  {p}
+                </p>
+              ))}
+            </div>
+
+            {/* Right: Framework Panel */}
+            <aside style={{
+              flex: "0 0 34%",
+              background: palette.frameworkBg,
+              border: `1px solid ${palette.frameworkBorder}`,
+              borderRadius: 6,
+              padding: "24px 20px",
+              position: "sticky",
+              top: 80,
+            }}>
+              <div style={{
+                fontFamily: "system-ui, sans-serif",
+                fontSize: 10,
+                letterSpacing: 2,
+                textTransform: "uppercase",
+                color: palette.gold,
+                marginBottom: 12,
+                fontWeight: 700,
+              }}>
+                Course Framework
+              </div>
+              <h3 style={{
+                fontSize: 16,
+                fontWeight: 700,
+                color: palette.navy,
+                margin: "0 0 12px",
+                fontFamily: "system-ui, sans-serif",
+                lineHeight: 1.4,
+              }}>
+                {ch.framework.concept}
+              </h3>
+              <p style={{
+                fontSize: 13.5,
+                color: palette.textSecondary,
+                lineHeight: 1.7,
+                margin: "0 0 16px",
+              }}>
+                {ch.framework.application}
+              </p>
+              <div style={{
+                borderTop: `1px solid ${palette.frameworkBorder}`,
+                paddingTop: 12,
+              }}>
+                <div style={{
+                  fontFamily: "system-ui, sans-serif",
+                  fontSize: 10,
+                  letterSpacing: 1.5,
+                  textTransform: "uppercase",
+                  color: palette.textMuted,
+                  marginBottom: 8,
+                }}>
+                  Key Concepts Applied
+                </div>
+                <div style={{ display: "flex", flexWrap: "wrap", gap: 6 }}>
+                  {ch.framework.keyTerms.map((t, i) => (
+                    <span key={i} style={{
+                      display: "inline-block",
+                      background: palette.white,
+                      border: `1px solid ${palette.frameworkBorder}`,
+                      borderRadius: 4,
+                      padding: "4px 10px",
+                      fontSize: 11,
+                      fontFamily: "system-ui, sans-serif",
+                      color: palette.navy,
+                      fontWeight: 500,
+                    }}>
+                      {t}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </aside>
+          </div>
+
+          {/* Chapter Navigation Footer */}
+          <div style={{
+            display: "flex",
+            justifyContent: "space-between",
+            maxWidth: 1100,
+            margin: "0 auto",
+            padding: "0 32px 48px",
+            borderTop: `1px solid ${palette.divider}`,
+            paddingTop: 24,
+          }}>
+            <button
+              onClick={() => setActiveChapter(Math.max(0, activeChapter - 1))}
+              disabled={activeChapter === 0}
+              style={{
+                background: "none",
+                border: `1px solid ${activeChapter === 0 ? palette.divider : palette.navy}`,
+                color: activeChapter === 0 ? palette.textMuted : palette.navy,
+                padding: "10px 24px",
+                borderRadius: 4,
+                cursor: activeChapter === 0 ? "default" : "pointer",
+                fontFamily: "system-ui, sans-serif",
+                fontSize: 13,
+                opacity: activeChapter === 0 ? 0.4 : 1,
+              }}
+            >
+              ← Previous
+            </button>
+            <div style={{
+              fontFamily: "system-ui, sans-serif",
+              fontSize: 12,
+              color: palette.textMuted,
+              alignSelf: "center",
+            }}>
+              {activeChapter + 1} of {chapters.length}
+            </div>
+            <button
+              onClick={() => setActiveChapter(Math.min(chapters.length - 1, activeChapter + 1))}
+              disabled={activeChapter === chapters.length - 1}
+              style={{
+                background: activeChapter === chapters.length - 1 ? "none" : palette.navy,
+                border: `1px solid ${palette.navy}`,
+                color: activeChapter === chapters.length - 1 ? palette.textMuted : palette.white,
+                padding: "10px 24px",
+                borderRadius: 4,
+                cursor: activeChapter === chapters.length - 1 ? "default" : "pointer",
+                fontFamily: "system-ui, sans-serif",
+                fontSize: 13,
+                opacity: activeChapter === chapters.length - 1 ? 0.4 : 1,
+              }}
+            >
+              Next →
+            </button>
+          </div>
+
+          {/* Footer */}
+          <footer style={{
+            background: palette.navy,
+            color: "#7a8494",
+            padding: "24px 32px",
+            textAlign: "center",
+            fontFamily: "system-ui, sans-serif",
+            fontSize: 11,
+            letterSpacing: 0.5,
+          }}>
+            EMBA September 2025 · Corporate Strategy · Team Work: M&A Presentation · Due June 27, 2026
+          </footer>
+        </div>
+      );
+    }
+
+    const root = ReactDOM.createRoot(document.getElementById('root'));
+    root.render(<TataAirIndiaCase />);
+  </script>
+</body>
+</html>
